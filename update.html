@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <base target="_top" />
+    <style>
+    body { margin:10px; }
+    </style>
+
+  </head>
+  <body>
+<script>
+function onUpdateSuccess(data) {
+  alert('更新しました');
+}
+
+function onDeleteSuccess(data) {
+  alert('削除しました');
+}
+</script>
+<?
+  if( content.result.length > 0 ) {
+?>
+<form>
+<input type="hidden" name="row_id" value="<?= content.result.row_id ?>">
+<div><label>ファイル名</label><input name="name" value="<?= content.result.name ?>"></div>
+<div><label>ファイル種別</label><input name="type" value="<?= content.result.type ?>"></div>
+<div><label>scope</label><input name="scope" value="<?= content.result.scope ?>"></div>
+<div><label>content</label><textarea rows="10" cols="60" name="content" placeholder="ここに記入してください"><?= content.result.content ?></textarea></div>
+<input type="button" onclick="google.script.run.withSuccessHandler(onUpdateSuccess).updateRecord(this.parentNode);" value="更新">
+<input type="button" onclick="google.script.run.withSuccessHandler(onDeleteSuccess).deleteRecord(this.parentNode);" value="削除">
+</form>
+<?
+  }
+?>
+<br>
+<a href="<?=content.request.baseurl ?>/index.html">戻る</a>
+
+
+
+
+  </body>
+</html>

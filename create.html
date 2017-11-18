@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <base target="_top" />
+    <style>
+    body { margin:10px; }
+    </style>
+
+  </head>
+  <body>
+
+<?=JSON.stringify(content.request)?><br>
+<script>
+function onSuccess(data) {
+  alert('追加しました');
+}
+</script>
+<form>
+<div><label>ファイル名</label><input name="name"></div>
+<div><label>ファイル種別</label><input name="type"></div>
+<div><label>scope</label><input name="scope"></div>
+<div><label>content</label><input name="content"></div>
+<input type="button" onclick="google.script.run.withSuccessHandler(onSuccess).createRecord(this.parentNode);" value="追加">
+</form>
+<br>
+<a href="<?=content.request.baseurl ?>/">戻る</a>
+
+
+
+
+
+  </body>
+</html>
