@@ -1,0 +1,2 @@
+# GAS_store
+google apps scriptとFusionTablesを利用したファイル保存サービス
